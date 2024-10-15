@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #7a7e85;}
+.s5 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+    <span class="s0">static int</span><span class="s2">[][] </span><span class="s1">matrix </span><span class="s2">= {</span>
+            <span class="s2">{ </span><span class="s3">6</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">9</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0 </span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">8</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">1</span><span class="s2">, </span><span class="s3">7</span><span class="s2">, </span><span class="s3">6</span><span class="s2">, </span><span class="s3">3</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">9 </span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">0</span><span class="s2">, </span><span class="s3">4</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">9</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">8</span><span class="s2">, </span><span class="s3">6</span><span class="s2">, </span><span class="s3">5</span><span class="s2">, </span><span class="s3">1 </span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">7</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">9</span><span class="s2">, </span><span class="s3">1</span><span class="s2">, </span><span class="s3">0 </span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">0</span><span class="s2">, </span><span class="s3">8</span><span class="s2">, </span><span class="s3">2</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">6</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">5</span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">1</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">3</span><span class="s2">, </span><span class="s3">8</span><span class="s2">, </span><span class="s3">0</span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">3</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">6</span><span class="s2">, </span><span class="s3">7</span><span class="s2">, </span><span class="s3">2</span><span class="s2">, </span><span class="s3">8</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">0</span><span class="s2">, </span><span class="s3">9</span><span class="s2">, </span><span class="s3">6</span><span class="s2">, </span><span class="s3">8</span><span class="s2">, </span><span class="s3">3</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">5</span><span class="s2">, </span><span class="s3">2</span><span class="s2">, </span><span class="s3">0</span><span class="s2">},</span>
+            <span class="s2">{ </span><span class="s3">2</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">4</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">3</span><span class="s2">},</span>
+    <span class="s2">};</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s4">//int [][] matrix1 = new int[9][9];</span>
+        <span class="s4">//matrix1[0][0] = 1;</span>
+        <span class="s0">int </span><span class="s1">start </span><span class="s2">= </span><span class="s3">1</span><span class="s2">;</span>
+        <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">start </span><span class="s2">== </span><span class="s3">1</span><span class="s2">){</span>
+            <span class="s1">printMatrix</span><span class="s2">(</span><span class="s1">matrix</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Bitte geben Sie eine Position und die Zahl ein: (1 2 3) &quot;</span><span class="s2">);</span>
+            <span class="s1">String input </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+            <span class="s1">String</span><span class="s2">[] </span><span class="s1">input1 </span><span class="s2">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s5">&quot; &quot;</span><span class="s2">);</span>
+            <span class="s0">int </span><span class="s1">row </span><span class="s2">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">input1</span><span class="s2">[</span><span class="s3">0</span><span class="s2">]);</span>
+            <span class="s0">int </span><span class="s1">col </span><span class="s2">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">input1</span><span class="s2">[</span><span class="s3">1</span><span class="s2">]);</span>
+            <span class="s0">int </span><span class="s1">num </span><span class="s2">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">input1</span><span class="s2">[</span><span class="s3">2</span><span class="s2">]);</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">true_rules</span><span class="s2">(</span><span class="s1">row</span><span class="s2">, </span><span class="s1">col</span><span class="s2">, </span><span class="s1">num</span><span class="s2">, </span><span class="s1">matrix</span><span class="s2">) == </span><span class="s0">true</span><span class="s2">) {</span>
+                <span class="s1">paste_num</span><span class="s2">(</span><span class="s1">row</span><span class="s2">,</span><span class="s1">col</span><span class="s2">,</span><span class="s1">num</span><span class="s2">,</span><span class="s1">matrix</span><span class="s2">);</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Right&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">true_rules</span><span class="s2">(</span><span class="s1">row</span><span class="s2">, </span><span class="s1">col</span><span class="s2">, </span><span class="s1">num</span><span class="s2">, </span><span class="s1">matrix</span><span class="s2">) == </span><span class="s0">false</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Wrong&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+        <span class="s2">}</span>
+
+
+    <span class="s2">}</span>
+    <span class="s0">public static int</span><span class="s2">[][] </span><span class="s1">printMatrix</span><span class="s2">(</span><span class="s0">int </span><span class="s2">[][] </span><span class="s1">matrix</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">matrix</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">j </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">j </span><span class="s2">&lt; </span><span class="s1">matrix</span><span class="s2">[</span><span class="s1">i</span><span class="s2">].</span><span class="s1">length</span><span class="s2">; </span><span class="s1">j</span><span class="s2">++) {</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">j </span><span class="s2">== </span><span class="s3">3 </span><span class="s2">| </span><span class="s1">j </span><span class="s2">== </span><span class="s3">6 </span><span class="s2">| </span><span class="s1">j </span><span class="s2">== </span><span class="s3">9</span><span class="s2">){</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;|&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">matrix</span><span class="s2">[</span><span class="s1">i</span><span class="s2">][</span><span class="s1">j</span><span class="s2">] == </span><span class="s3">0</span><span class="s2">){</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;</span><span class="s0">\t</span><span class="s5">&quot;</span><span class="s2">);</span>
+                <span class="s2">} </span><span class="s0">else</span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">matrix</span><span class="s2">[</span><span class="s1">i</span><span class="s2">][</span><span class="s1">j</span><span class="s2">] + </span><span class="s5">&quot;</span><span class="s0">\t</span><span class="s5">&quot;</span><span class="s2">);  </span><span class="s4">// Tabulator für Formatierung</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();  </span><span class="s4">// Neue Zeile nach jeder Zeile der Matrix</span>
+            <span class="s0">if</span><span class="s2">(</span><span class="s1">i </span><span class="s2">== </span><span class="s3">2 </span><span class="s2">| </span><span class="s1">i </span><span class="s2">== </span><span class="s3">5 </span><span class="s2">| </span><span class="s1">i </span><span class="s2">== </span><span class="s3">8</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;------------------------------------&quot;</span><span class="s2">);</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">matrix</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static boolean </span><span class="s1">true_rules</span><span class="s2">(</span><span class="s0">int </span><span class="s1">row</span><span class="s2">, </span><span class="s0">int </span><span class="s1">col</span><span class="s2">, </span><span class="s0">int </span><span class="s1">num</span><span class="s2">, </span><span class="s0">int</span><span class="s2">[][] </span><span class="s1">matrix</span><span class="s2">) {</span>
+        <span class="s0">boolean </span><span class="s1">include_num </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">r </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">r </span><span class="s2">&lt; </span><span class="s1">matrix</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">r</span><span class="s2">++) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">matrix</span><span class="s2">[</span><span class="s1">r</span><span class="s2">][</span><span class="s1">col</span><span class="s2">] == </span><span class="s1">num</span><span class="s2">) {</span>
+                <span class="s1">include_num </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">s </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">s </span><span class="s2">&lt; </span><span class="s1">matrix</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">s</span><span class="s2">++) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">matrix</span><span class="s2">[</span><span class="s1">row</span><span class="s2">][</span><span class="s1">s</span><span class="s2">] == </span><span class="s1">num</span><span class="s2">) {</span>
+                <span class="s1">include_num </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">row </span><span class="s2">== </span><span class="s3">0 </span><span class="s2">| </span><span class="s1">row </span><span class="s2">== </span><span class="s3">1 </span><span class="s2">| </span><span class="s1">row </span><span class="s2">== </span><span class="s3">2</span><span class="s2">) {</span>
+            <span class="s1">row </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">row </span><span class="s2">== </span><span class="s3">3 </span><span class="s2">| </span><span class="s1">row </span><span class="s2">== </span><span class="s3">4 </span><span class="s2">| </span><span class="s1">row </span><span class="s2">== </span><span class="s3">5</span><span class="s2">) {</span>
+            <span class="s1">row </span><span class="s2">= </span><span class="s3">3</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">row </span><span class="s2">== </span><span class="s3">6 </span><span class="s2">| </span><span class="s1">row </span><span class="s2">== </span><span class="s3">7 </span><span class="s2">| </span><span class="s1">row </span><span class="s2">== </span><span class="s3">8</span><span class="s2">) {</span>
+            <span class="s1">row </span><span class="s2">= </span><span class="s3">6</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">col </span><span class="s2">== </span><span class="s3">0 </span><span class="s2">| </span><span class="s1">col </span><span class="s2">== </span><span class="s3">1 </span><span class="s2">| </span><span class="s1">col </span><span class="s2">== </span><span class="s3">2</span><span class="s2">) {</span>
+            <span class="s1">col </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">col </span><span class="s2">== </span><span class="s3">3 </span><span class="s2">| </span><span class="s1">col </span><span class="s2">== </span><span class="s3">4 </span><span class="s2">| </span><span class="s1">col </span><span class="s2">== </span><span class="s3">5</span><span class="s2">) {</span>
+            <span class="s1">col </span><span class="s2">= </span><span class="s3">3</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">col </span><span class="s2">== </span><span class="s3">6 </span><span class="s2">| </span><span class="s1">col </span><span class="s2">== </span><span class="s3">7 </span><span class="s2">| </span><span class="s1">col </span><span class="s2">== </span><span class="s3">8</span><span class="s2">) {</span>
+            <span class="s1">col </span><span class="s2">= </span><span class="s3">6</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s3">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">j </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">j </span><span class="s2">&lt; </span><span class="s3">3</span><span class="s2">; </span><span class="s1">j</span><span class="s2">++) {</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">num </span><span class="s2">== </span><span class="s1">matrix</span><span class="s2">[</span><span class="s1">row</span><span class="s2">+</span><span class="s1">i</span><span class="s2">][</span><span class="s1">col</span><span class="s2">+</span><span class="s1">j</span><span class="s2">]) {</span>
+                    <span class="s1">include_num </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">include_num</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">paste_num</span><span class="s2">(</span><span class="s0">int </span><span class="s1">row</span><span class="s2">, </span><span class="s0">int </span><span class="s1">col</span><span class="s2">, </span><span class="s0">int </span><span class="s1">num</span><span class="s2">, </span><span class="s0">int</span><span class="s2">[][] </span><span class="s1">matrix</span><span class="s2">) {</span>
+        <span class="s1">matrix</span><span class="s2">[</span><span class="s1">row</span><span class="s2">][</span><span class="s1">col</span><span class="s2">] = </span><span class="s1">num</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span></pre>
+</body>
+</html>
