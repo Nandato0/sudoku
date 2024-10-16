@@ -16,9 +16,10 @@ public class Main {
     public static void main(String[] args) {
         //int [][] matrix1 = new int[9][9];
         //matrix1[0][0] = 1;
-        int start = 1;
+
         Scanner scanner = new Scanner(System.in);
-        while (start == 1){
+        while (true){
+            int[][] solution = matrixsolver.solveSudoku(matrix);
             printMatrix(matrix);
             System.out.print("Bitte geben Sie eine Position und die Zahl ein: (1 2 3) ");
             String input = scanner.nextLine();
@@ -31,11 +32,15 @@ public class Main {
                 paste_num(row,col,num,matrix);
                 System.out.println("Right");
             }
-            if (true_rules(row, col, num, matrix) == false) {
+            else  {
                 System.out.println("Wrong");
             }
-
+            if (MatrixComparison.areMatricesEqual(matrix, solution) == true) {
+                System.out.println("Super");
+                break;
+            }
         }
+        System.out.println("Fertig");
 
 
     }
@@ -43,7 +48,7 @@ public class Main {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 if (j == 3 | j == 6 | j == 9){
-                    System.out.print("|");
+                    System.out.print("| ");
                 }
                 if (matrix[i][j] == 0){
                     System.out.print("\t");
