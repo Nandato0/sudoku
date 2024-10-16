@@ -103,6 +103,7 @@ public class Main {
         return include_num;
     }
 
+
     public static void paste_num(int row, int col, int num, int[][] matrix) {
         matrix[row][col] = num;
     }
