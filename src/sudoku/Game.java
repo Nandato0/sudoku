@@ -1,27 +1,42 @@
-import java.util.Scanner;
+package sudoku;
 
-public class Main {
-    static int[][] matrix = {
-            { 6, 0, 9, 0, 0, 0, 0, 0, 0 },
-            { 8, 0, 1, 7, 6, 3, 0, 0, 9 },
-            { 0, 4, 0, 9, 0, 8, 6, 5, 1 },
-            { 0, 0, 7, 0, 0, 0, 9, 1, 0 },
-            { 0, 8, 2, 0, 0, 6, 0, 0, 5},
-            { 0, 0, 0, 1, 0, 0, 3, 8, 0},
-            { 3, 0, 0, 6, 7, 2, 8, 0, 0},
-            { 0, 9, 6, 8, 3, 0, 5, 2, 0},
-            { 2, 0, 0, 0, 4, 0, 0, 0, 3},
-    };
+
+import java.util.Scanner;
+import java.util.Random;
+
+
+public class Game {
+    int low = 300;
+    int mid = 150;
+    int high = 80;
+    public static int difficulty;
+
 
     public static void main(String[] args) {
         //int [][] matrix1 = new int[9][9];
         //matrix1[0][0] = 1;
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Schwierigkeit 1 bis 3?: ");
+        String inputDif = scanner.nextLine();
+        int dif = Integer.parseInt(inputDif);
+
+        if (dif == 3) {
+            difficulty = 70;
+        }
+        if (dif == 2) {
+            difficulty = 100;
+        }
+        if (dif == 1) {
+            difficulty = 150;
+        }
+
+        int[][] matrix = createRandomSudoku(difficulty);
+        int[][] solution = matrixsolver.solveSudoku(matrix);
         while (true){
-            int[][] solution = matrixsolver.solveSudoku(matrix);
             printMatrix(matrix);
-            System.out.print("Bitte geben Sie eine Position und die Zahl ein: (1 2 3) ");
+            //printMatrix(solution);
+            System.out.println("Bitte geben Sie eine Position und die Zahl ein: (1 2 3) ");
             String input = scanner.nextLine();
             String[] input1 = input.split(" ");
             int row = Integer.parseInt(input1[0]);
@@ -47,7 +62,7 @@ public class Main {
     public static int[][] printMatrix(int [][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (j == 3 | j == 6 | j == 9){
+                if (j == 3 || j == 6 || j == 9){
                     System.out.print("| ");
                 }
                 if (matrix[i][j] == 0){
@@ -57,7 +72,7 @@ public class Main {
                 }
             }
             System.out.println();  // Neue Zeile nach jeder Zeile der Matrix
-            if(i == 2 | i == 5 | i == 8) {
+            if(i == 2 || i == 5 || i == 8) {
                 System.out.print("------------------------------------");
                 System.out.println();
             }
@@ -70,12 +85,22 @@ public class Main {
 
         for (int r = 0; r < matrix.length; r++) {
             if (matrix[r][col] == num) {
-                include_num = false;
+                if (num == 0){
+                    include_num = true;
+                }
+                else {
+                    include_num = false;
+                }
             }
         }
         for (int s = 0; s < matrix.length; s++) {
             if (matrix[row][s] == num) {
-                include_num = false;
+                if (num == 0){
+                    include_num = true;
+                }
+                else {
+                    include_num = false;
+                }
             }
         }
 
@@ -101,7 +126,12 @@ public class Main {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (num == matrix[row+i][col+j]) {
-                    include_num = false;
+                    if (num == 0){
+                        include_num = true;
+                    }
+                    else{
+                        include_num = false;
+                    }
                 }
             }
         }
@@ -113,4 +143,36 @@ public class Main {
         matrix[row][col] = num;
     }
 
+    public static void delete_num(int row, int col, int[][] matrix) {
+        matrix[row][col] = 0;
+    }
+
+
+    public static int[][] createRandomSudoku(int difficulty) {
+        int[][] matrix = new int[9][9];
+
+        boolean able = true;
+            for (int i = 0; i < difficulty; i++) {
+                int randRow = (int) (Math.random()*9);
+                int randCol = (int) (Math.random()*9);
+                int randNum = (int) (Math.random() * 9) + 1;
+
+
+                if (matrix[randRow][randCol] == 0){
+                    if (true_rules(randRow, randCol, randNum, matrix) == true) {
+                        if (matrixsolver.solveSudoku(matrix) != null) {
+                            paste_num(randRow,randCol,randNum,matrix);
+                            if (matrixsolver.solveSudoku(matrix) == null) {
+                                delete_num(randRow,randCol,matrix);
+                            }
+                        }
+                        else {
+                            able = false;
+                        }
+                    }
+                }
+            }
+
+        return matrix;
+    }
 }

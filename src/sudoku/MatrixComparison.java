@@ -1,3 +1,5 @@
+package sudoku;
+
 public class MatrixComparison {
     public static boolean areMatricesEqual(int[][] matrix1, int[][] matrix2) {
 
