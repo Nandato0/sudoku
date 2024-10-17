@@ -1,21 +1,20 @@
 package sudoku;
 
-
 import java.util.Scanner;
-import java.util.Random;
+import sudoku.matrixsolver;
+import sudoku.MatrixComparison;
 
+import javax.swing.*;
 
 public class Game {
     int low = 300;
     int mid = 150;
     int high = 80;
     public static int difficulty;
+    private JPanel panel1;
 
 
     public static void main(String[] args) {
-        //int [][] matrix1 = new int[9][9];
-        //matrix1[0][0] = 1;
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Schwierigkeit 1 bis 3?: ");
         String inputDif = scanner.nextLine();
@@ -33,6 +32,7 @@ public class Game {
 
         int[][] matrix = createRandomSudoku(difficulty);
         int[][] solution = matrixsolver.solveSudoku(matrix);
+
         while (true){
             printMatrix(matrix);
             //printMatrix(solution);
@@ -56,6 +56,8 @@ public class Game {
             }
         }
         System.out.println("Fertig");
+
+
 
 
     }
@@ -174,5 +176,9 @@ public class Game {
             }
 
         return matrix;
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
