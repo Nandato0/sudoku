@@ -1,8 +1,6 @@
 package sudoku;
 
 import java.util.Scanner;
-import sudoku.matrixsolver;
-import sudoku.MatrixComparison;
 
 import javax.swing.*;
 
@@ -15,7 +13,7 @@ public class Game {
 
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(GUI::new);
+
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Schwierigkeit 1 bis 3?: ");
@@ -37,7 +35,6 @@ public class Game {
 
         while (true){
             printMatrix(matrix);
-            //printMatrix(solution);
             System.out.println("Bitte geben Sie eine Position und die Zahl ein: (1 2 3) ");
             String input = scanner.nextLine();
             String[] input1 = input.split(" ");
