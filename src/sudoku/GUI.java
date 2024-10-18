@@ -3,9 +3,12 @@ package sudoku;
 import javax.swing.*;
 import java.awt.*;
 
+import static sudoku.Game.createRandomSudoku;
+
 public class GUI extends JFrame {
     private static final int SIZE = 9;
     private JTextField[][] cells;
+    int[][] matrix = createRandomSudoku(3);
 
     public GUI() {
         setTitle("Sudoku");
@@ -25,10 +28,31 @@ public class GUI extends JFrame {
 
         setSize(800, 600); // Standardgröße des Fensters setzen
         setLocationRelativeTo(null); // Fenster in der Mitte des Bildschirms anzeigen
+
+        // Beispielhafte Zahlen in einige Zellen einfügen
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(GUI::new);
+    private void addInitialNumbers() {
+        // Hier kannst du festgelegte Zahlen in die Zellen setzen
+        for (int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                if (matrix[x][y] != 0) {
+                    cells[x][y].setText(Integer.toString(matrix[x][y]));
+                    cells[x][y].setEditable(false);
+
+                }
+            }
+
+
+            /* Optional: Diese Zellen nicht editierbar machen
+            cells[0][0].setEditable(false);
+            cells[0][1].setEditable(false);
+            cells[1][0].setEditable(false);
+            cells[4][4].setEditable(false);
+            cells[8][8].setEditable(false);*/
+        }
+
+
     }
 }

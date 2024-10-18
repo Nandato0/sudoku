@@ -15,6 +15,8 @@ public class Game {
 
 
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(GUI::new);
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Schwierigkeit 1 bis 3?: ");
         String inputDif = scanner.nextLine();
@@ -27,7 +29,7 @@ public class Game {
             difficulty = 100;
         }
         if (dif == 1) {
-            difficulty = 150;
+            difficulty = 125;
         }
 
         int[][] matrix = createRandomSudoku(difficulty);
