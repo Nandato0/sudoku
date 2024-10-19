@@ -1,7 +1,6 @@
 package sudoku;
 
 import java.util.Scanner;
-
 import javax.swing.*;
 
 public class Game {
@@ -12,7 +11,7 @@ public class Game {
     private JPanel panel1;
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
 
         Scanner scanner = new Scanner(System.in);
@@ -55,24 +54,23 @@ public class Game {
             }
         }
         System.out.println("Fertig");
+    }*/
 
 
 
-
-    }
     public static int[][] printMatrix(int [][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 if (j == 3 || j == 6 || j == 9){
                     System.out.print("| ");
                 }
                 if (matrix[i][j] == 0){
                     System.out.print("\t");
                 } else{
-                    System.out.print(matrix[i][j] + "\t");  // Tabulator für Formatierung
+                    System.out.print(matrix[i][j] + "\t");
                 }
             }
-            System.out.println();  // Neue Zeile nach jeder Zeile der Matrix
+            System.out.println();
             if(i == 2 || i == 5 || i == 8) {
                 System.out.print("------------------------------------");
                 System.out.println();
@@ -139,7 +137,6 @@ public class Game {
         return include_num;
     }
 
-
     public static void paste_num(int row, int col, int num, int[][] matrix) {
         matrix[row][col] = num;
     }
@@ -147,7 +144,6 @@ public class Game {
     public static void delete_num(int row, int col, int[][] matrix) {
         matrix[row][col] = 0;
     }
-
 
     public static int[][] createRandomSudoku(int difficulty) {
         int[][] matrix = new int[9][9];
@@ -177,7 +173,5 @@ public class Game {
         return matrix;
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
+
 }

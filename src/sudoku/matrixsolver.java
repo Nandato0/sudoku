@@ -5,7 +5,6 @@ public class matrixsolver {
 
     static int N = 9;
 
-    // Solve Sudoku on the given matrix without modifying the input
     static boolean solveSudoku(int[][] grid, int row, int col) {
         if (row == N - 1 && col == N)
             return true;
@@ -29,7 +28,6 @@ public class matrixsolver {
         return false;
     }
 
-    // Check if it's safe to place a number
     static boolean isSafe(int[][] grid, int row, int col, int num) {
         for (int x = 0; x < N; x++)
             if (grid[row][x] == num || grid[x][col] == num)
@@ -44,21 +42,53 @@ public class matrixsolver {
         return true;
     }
 
-    // Function to solve Sudoku and return the solution
     static int[][] solveSudoku(int[][] inputMatrix) {
         int[][] solution = new int[N][N];
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                solution[i][j] = inputMatrix[i][j];  // Copy inputMatrix into solution
+                solution[i][j] = inputMatrix[i][j];
             }
         }
 
         if (solveSudoku(solution, 0, 0)) {
-            return solution;  // Return the solved matrix
+            return solution;
         } else {
-            return null;  // Return null if no solution exists
+            return null;
         }
     }
+
+    public static boolean matrixchecker(int[][] matrix) {
+        int check = 0;
+        if (checkempty(matrix) == true){
+            return false;
+        }
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; i++) {
+                if (Game.true_rules(i,j,matrix[i][j],matrix) == true){
+                    check++;
+                }
+            }
+        }
+        if (check == 81){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+    public static boolean checkempty(int[][] matrix) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (matrix[i][j] == 0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
 }
 
